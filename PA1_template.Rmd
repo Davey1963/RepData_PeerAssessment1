@@ -1,16 +1,8 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
-
-
-## Loading and preprocessing the data
+# Loading and preprocessing the data
 
 data <- read.csv("C:/Users/pbagavan/Desktop/repdata%2Fdata%2Factivity/activity.csv")
 
-## What is mean total number of steps taken per day?
+# What is mean total number of steps taken per day?
 
 ## Histogram of the total number of steps taken each day
 
@@ -18,7 +10,7 @@ steps.per.day <- aggregate(steps ~ date, data, FUN = "sum")
 
 hist(steps.per.day$steps, main = paste("Total Steps Each Day"), col="brown", xlab="Number of Steps")
 
-## What is the average daily activity pattern?
+# What is the average daily activity pattern?
 
 ## Mean and median number of steps taken each day
 
@@ -41,7 +33,7 @@ Steps",main="Average Number of Steps per Day by Interval")
 max.steps.interval <- steps.per.interval[which.max(steps.per.interval$steps),1]
 
 
-## Imputing missing values
+# Imputing missing values
 ## Code to describe and show a strategy for imputing missing data
 
 imputed <- transform(data, steps = ifelse(is.na(data$steps), steps.per.interval$steps[match(data$interval, 
@@ -50,7 +42,7 @@ steps.per.interval$interval)], data$steps))
 imputed[as.character(imputed$date) == "2012-10-01", 1] <- 0
 
 
-## Are there differences in activity patterns between weekdays and weekends?
+# Are there differences in activity patterns between weekdays and weekends?
 ## Histogram of the total number of steps taken each day after missing values are imputed
 
 steps.per.day.after.impute <- aggregate(steps ~ date, imputed, FUN = "sum")
