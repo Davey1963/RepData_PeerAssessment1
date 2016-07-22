@@ -25,7 +25,9 @@ hist(steps.per.day$steps, main = paste("Total Steps Each Day"), col="brown", xla
 
 ## Mean and median number of steps taken each day
 mean.before <- mean(steps.per.day$steps)
+mean.before
 median.before <- median(steps.per.day$steps)
+median.before
 
 ## Time series plot of the average number of steps taken
 steps.per.interval <- aggregate(steps ~ interval, data, FUN = "mean")
