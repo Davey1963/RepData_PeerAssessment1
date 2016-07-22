@@ -15,7 +15,7 @@ steps.per.day <- aggregate(steps ~ date, data, FUN = "sum")
 hist(steps.per.day$steps, main = paste("Total Steps Each Day"), col="brown", xlab="Number of Steps")
 ```
 
-![](Fitbit_files/figure-html/unnamed-chunk-1-1.png)<!-- -->
+![](Fitbit_files/figure-html/unnamed-chunk-1-1.png)
 
 ```r
 # 3. Mean and median number of steps taken each day
@@ -27,7 +27,7 @@ steps.per.interval <- aggregate(steps ~ interval, data, FUN = "mean")
 plot(steps.per.interval$interval,steps.per.interval$steps, type="l", col="orange", xlab="Interval", ylab="Number of Steps",main="Average Number of Steps per Day by Interval")
 ```
 
-![](Fitbit_files/figure-html/unnamed-chunk-1-2.png)<!-- -->
+![](Fitbit_files/figure-html/unnamed-chunk-1-2.png)
 
 ```r
 # 5. The 5-minute interval that, on average, contains the maximum number of steps
@@ -79,10 +79,10 @@ steps.per.interval.after.impute <- aggregate(steps ~ interval + weektype, impute
 library(lattice)
 ```
 
-![](Fitbit_files/figure-html/unnamed-chunk-1-3.png)<!-- -->
+![](Fitbit_files/figure-html/unnamed-chunk-1-3.png)
 
 ```r
 xyplot(steps.per.interval.after.impute$steps ~ steps.per.interval.after.impute$interval|steps.per.interval.after.impute$weektype, main="Average Steps per Day by Interval",xlab="Interval", ylab="Steps",layout=c(1,2), type="l")
 ```
 
-![](Fitbit_files/figure-html/unnamed-chunk-1-4.png)<!-- -->
+![](Fitbit_files/figure-html/unnamed-chunk-1-4.png)
